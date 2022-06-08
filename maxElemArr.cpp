@@ -9,21 +9,37 @@ int arr[n][m] = { { 1, 2, 3, 4 },
                   { 9, 10, 11, 12 },
                   { 13, 14, 15, 16 } };
 
+for (int i = 0; i < n; i++) {
+   for (int j = 0; j < m; j++) {
+      std::cout << arr[i][j] << " ";
+    }
+}
 
 int maxElement = arr[0][0];
 for (int i = 0; i < n; i++) {
     for (int j = 0; j < m; j++) {
         if (arr[i][j] > maxElement) {
             maxElement = arr[i][j];
-        }
+        } 
     }
+    int j;
+    int temp = arr[n][m];
+    arr[n][m] = arr[i][j];
+    arr[i][j] = temp;
 }
  
 
-cout << "Max Element array is: " << maxElement << endl;
-cout << "First Element array is: " << (**arr) << std::endl;
+cout << "\nMax Element array is: " << maxElement << endl;
+int a = (**arr);
 arr[0][0]=maxElement;
-cout << "Now First Element array is: " << maxElement << std::endl;
+int b = maxElement;
+for (int i = 0; i < n; i++) {
+   for (int j = 0; j < m; j++) {
+      std::cout << arr[i][j] << " ";
+    }
+}
+
+cout << "\nNow First Element array is: " << maxElement << endl;
 
 return 0;
 }
